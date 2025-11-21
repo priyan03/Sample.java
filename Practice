@@ -120,7 +120,61 @@ class One{
 }
 
 ---------------------------------------------------------------------------------------------------
+Simple Uppercase and lowerCase problem
 
+class One{
+    public static void main(String[] args) {
+        String str = "priyan";
+        String result =  "";
+        for(int i = 0; i < str.length(); i++){
+            char ch = str.charAt(i);
+            if(i == 0){
+                result += Character.toUpperCase(ch);
+            }
+            else{
+                result += Character.toLowerCase(ch);
+            }
+        }
+        System.out.println(result);
+    }
+}
+
+------------------------------------------------------------------------------------------------
+
+Difference between STRBuffer and STRbuilder
+
+class One{
+    public static void main(String[] args) {
+        String sb = "hi";
+        StringBuffer str = new StringBuffer();
+        Thread t1 = new Thread(() ->
+        {
+          for(int i = 0; i < 1000; i++){
+              str.append("A");
+          }
+        });
+        Thread t2 = new Thread(() ->
+        {
+            for(int i = 0; i < 1000; i++){
+                str.append("B");
+            }
+        });
+        t1.start();
+        t2.start();
+        try
+        {
+            t1.join();
+            t2.join();
+        }
+        catch (Exception e){
+
+        }
+        System.out.println(str.toString().length());
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+    }
+}
 
 
 
